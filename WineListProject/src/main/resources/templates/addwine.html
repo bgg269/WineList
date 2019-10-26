@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Wines</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add Wines</h1>
+<div>
+	<form th:object="${wine}" th:action="@{save}" action="#" method="post">
+		<label for="name">Name </label>
+		<input type="text" id= "name" th:field="*{name}" />
+		
+		<label for="type">Type </label>
+		<input type="text" id= "type" th:field="*{type}" />
+		
+		<label for="year">Year </label>
+		<input type="text" id= "year" th:field="*{year}" />
+		
+		<label for="price">Price </label>
+		<input type="text" id= "price" th:field="*{price}" />
+		
+		<label for="alcohol">Alcohol percentage </label>
+		<input type="text" id= "alcohol" th:field="*{alcohol}" />
+		
+							
+		  	<label for="catlist">Category</label>
+			 <select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+		
+		<input type="submit" value="Save"></input>
+	</form>
+</div>
+
+</body>
+</html>

@@ -30,9 +30,9 @@ public class WineListProjectApplication {
 			crepository.save(new Category("red"));
 			crepository.save(new Category("white"));
 
-			// Creating a wine(price, category)
-			wrepository.save(new Wine(20, crepository.findByName("red").get(0)));
-			wrepository.save(new Wine(25, crepository.findByName("white").get(0)));
+			// Creating a wine
+			wrepository.save(new Wine("nimi1", "valko", 2006, 23, 11.7, crepository.findByName("red").get(0)));
+			wrepository.save(new Wine("nimi2", "puna", 2010, 15, 17.9, crepository.findByName("white").get(0)));
 
 			
 			// Create users: admin/admin user/user
