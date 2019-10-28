@@ -87,7 +87,7 @@ public class WineController {
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String editWine(@PathVariable("id") Long wineId, Model model) {
-		model.addAttribute("book", repository.findById(wineId));
+		model.addAttribute("wine", repository.findById(wineId));
 		model.addAttribute("categorys", crepository.findAll());
 		return "editwine";
 	}

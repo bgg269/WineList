@@ -15,7 +15,7 @@ public class Wine {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String name, type;
+	private String name, region;
 	private Integer year, price;
 	private double alcohol;
 
@@ -27,7 +27,7 @@ public class Wine {
 
 	public Wine() {}
 	
-	public Wine(String name, String type, Integer year, Integer price, double alcohol, Category category) {
+	public Wine(String name, String region, Integer year, Integer price, double alcohol, Category category) {
 		super();
 		this.price = price;
 		this.category = category;
@@ -50,12 +50,12 @@ public class Wine {
 		this.name = name;
 	}
 
-	public String getType() {
-		return type;
+	public String getRegion() {
+		return region;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
 	public Integer getYear() {
@@ -93,11 +93,11 @@ public class Wine {
 	@Override
 	public String toString() {
 		if (this.category != null)
-			return "Wine [id=" + id + ", name=" + name + ", type=" + type + ", year=" + year + ", alcohol=" + alcohol
+			return "Wine [id=" + id + ", name=" + name + ", type=" + region + ", year=" + year + ", alcohol=" + alcohol
 					+ ", price=" + price + "category= " + this.getCategory() + "]";
 		else
 
-			return "Wine [id=" + id + ", name=" + name + ", type=" + type + ", year=" + year + ", alcohol=" + alcohol
+			return "Wine [id=" + id + ", name=" + name + ", type=" + region + ", year=" + year + ", alcohol=" + alcohol
 					+ ", price=" + price + "]";
 	}
 

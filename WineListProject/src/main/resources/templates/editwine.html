@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
 <head>
-<title>Edit Book</title>
+<title>Edit Wine</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -10,15 +11,10 @@
 	<form th:object="${wine}"  th:action="@{../save}" action="#" method="post">
 		<input type="hidden" th:field="*{id}" class="form-control"/>
 		<input type="text" th:field="*{name}" />
-		
-		<input type="text" th:field="*{type}" />
-		
+		<input type="text" th:field="*{region}" />
 		<input type="text" th:field="*{year}" />
-		
 		<input type="text" th:field="*{price}" />
-		
 		<input type="text" th:field="*{alcohol}" />
-		
 		
 		<select id="catlist" th:field="*{category}" class="form-control">
        			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>

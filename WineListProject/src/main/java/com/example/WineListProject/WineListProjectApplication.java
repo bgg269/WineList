@@ -29,11 +29,10 @@ public class WineListProjectApplication {
 			log.info("save a wine");
 			crepository.save(new Category("red"));
 			crepository.save(new Category("white"));
+			crepository.save(new Category("sparkling"));
+			crepository.save(new Category("rose"));
 
-			// Creating a wine
-			wrepository.save(new Wine("nimi1", "valko", 2006, 23, 11.7, crepository.findByName("red").get(0)));
-			wrepository.save(new Wine("nimi2", "puna", 2010, 15, 17.9, crepository.findByName("white").get(0)));
-
+		
 			
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$10$3tS39Zge9aUtub4IL3PYN.MsBxIYNyPqXGtSv1seYW3.48UdCLyfm", "user@haaga-helia.fi", "USER");
