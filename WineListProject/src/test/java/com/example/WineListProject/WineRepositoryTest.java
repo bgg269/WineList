@@ -20,27 +20,36 @@ class WineRepositoryTest {
 
 	@Autowired
     private WineRepository repository;
-
+	
+	
+	// Testing to create a wine
+	 @Test
+	    public void createNewWine() {
+	    	Wine wine = new Wine("nimi3", "France", 2019, 23, 26, new Category("Rose"));
+	    	repository.save(wine);
+	    	assertThat(wine.getId()).isNotNull();
+	    }   
+	
+	// Testing to find a wine
     @Test
-    public void findTitleShouldReturnBook() {
+    public void findNameShouldReturnWine() {
+    	Wine wine = new Wine("nimi1", "France", 2019, 23, 26, new Category("Rose"));
+    	repository.save(wine);
         List<Wine> wines = repository.findByName("nimi1");
-        
         assertThat(wines).hasSize(1);
-        assertThat(wines.get(0).getName()).isEqualTo("nimi3");
     }
     
+  //Testing to delete a wine
     @Test
-    public void createNewBook() {
-    	Wine wine = new Wine("nimi3", "France", 2019, 23, 26, new Category("Rose"));
-    	repository.save(wine);
-    	assertThat(wine.getId()).isNotNull();
-    }   
-    @Test
-    public void deleteBook() {
-    	System.out.println("books" + repository.findAll());
-		repository.deleteById((long) 3);
-    	System.out.println("books" + repository.findAll());
-		repository.deleteById((long) 5);
+    public void deleteWine() {
+    	List<Wine> oldWines = (List<Wine>) repository.findAll();
+    	Long deletedWineId = oldWines.get(0).getId();
+		repository.deleteById(deletedWineId);
+		
+		List<Wine> newWines = (List<Wine>) repository.findAll();
+		for (Wine wine : newWines) {
+			assert(wine.getId() != deletedWineId);
+		}
     }   
 
 }

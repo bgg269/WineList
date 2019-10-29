@@ -22,7 +22,7 @@ class CategoryRepositoryTest {
     private CategoryRepository repository;
 
     @Test
-    public void findNameShouldReturnWine() {
+    public void findNameShouldReturnCategory() {
         List<Category> categories = repository.findByName("red");
         assertThat(categories).hasSize(1);
     }

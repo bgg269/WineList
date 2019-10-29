@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.WineListProject.domain.Category;
 import com.example.WineListProject.domain.CategoryRepository;
 import com.example.WineListProject.domain.Wine;
 import com.example.WineListProject.domain.WineRepository;
+
 
 
 @Controller
@@ -36,6 +36,7 @@ public class WineController {
 		return "winelist";
 	}
 
+	// Add new wine
 	@RequestMapping(value = "/add")
 	public String addWine(Model model) {
 		model.addAttribute("wine", new Wine());
@@ -43,42 +44,25 @@ public class WineController {
 		return "addwine";
 	}
 	
-	// RESTful service to get all students
+	// RESTful service to get all wines
     @RequestMapping(value="/wines", method = RequestMethod.GET)
     public @ResponseBody List<Wine> wineListRest() {	
         return (List<Wine>) repository.findAll();
     }    
 
-	// RESTful service to get student by id
+	// RESTful service to get wines by id
     @RequestMapping(value="/wine/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Wine> findWineRest(@PathVariable("id") Long wineId) {	
     	return repository.findById(wineId);
     }
 
+    // Saving wines
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Wine wine) {
 		repository.save(wine);
 		return "redirect:winelist";
 	}
 	
-	@RequestMapping(value = "/find", method = RequestMethod.POST)
-	public String findAll() {
-		List<Wine> list = (List<Wine>) repository.findAll();
-		for (Wine wine : list) {
-			System.out.println("id" + wine.getId());
-		}
-		return null;
-	}
-	
-	@RequestMapping(value = "/findC", method = RequestMethod.POST)
-	public String findAllCategories() {
-		List<Category> list = (List<Category>) crepository.findAll();
-		for (Category category : list) {
-			System.out.println("id" + category.getCategoryid());
-		}
-		return null;
-	}
-
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteWine(@PathVariable("id") Long wineId, Model model) {
 		repository.deleteById(wineId);
