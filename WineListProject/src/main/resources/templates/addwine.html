@@ -28,6 +28,10 @@
 			 <select id="catlist" th:field="*{category}" class="form-control">
        			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
     		</select>
+    		
+    	
+		<label for="review">Review</label>
+		<input type="text" id= "review" th:field="*{review}" />
 		
 		<input type="submit" value="Save"></input>
 	</form>

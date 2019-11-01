@@ -75,4 +75,13 @@ public class WineController {
 		model.addAttribute("categorys", crepository.findAll());
 		return "editwine";
 	}
+	
+	@RequestMapping(value = "/find", method = RequestMethod.POST)
+	public String findAll() {
+		List<Wine> list = (List<Wine>) repository.findAll();
+		for (Wine wine : list) {
+			System.out.println("id" + wine.getId());
+		}
+		return null;
+	}
 }

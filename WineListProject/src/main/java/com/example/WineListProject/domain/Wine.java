@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -15,7 +16,7 @@ public class Wine {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String name, region;
+	private String name, region, review;
 	private Integer year, price;
 	private double alcohol;
 
@@ -27,7 +28,7 @@ public class Wine {
 
 	public Wine() {}
 	
-	public Wine(String name, String region, Integer year, Integer price, double alcohol, Category category) {
+	public Wine(String name, String region, Integer year, Integer price, double alcohol, Category category, String review) {
 		super();
 		this.price = price;
 		this.category = category;
@@ -90,6 +91,14 @@ public class Wine {
 		this.alcohol = alcohol;
 	}
 	
+	public String getReview() {
+		return review;
+	}
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+	
 	@Override
 	public String toString() {
 		if (this.category != null)
@@ -100,5 +109,7 @@ public class Wine {
 			return "Wine [id=" + id + ", name=" + name + ", type=" + region + ", year=" + year + ", alcohol=" + alcohol
 					+ ", price=" + price + "]";
 	}
+
+	
 
 }

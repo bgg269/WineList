@@ -25,6 +25,7 @@
 	<th>Price (€)</th>
 	<th>Alcohol (%)</th>
 	<th>Type</th>
+	<th>Review</th>
 	</tr>
 		<tr th:each = "wine : ${wines}">
 		
@@ -34,6 +35,7 @@
 			<td th:text= "${wine.price}"></td>
 			<td th:text= "${wine.alcohol}"></td>
 			<td th:text= "${wine.category.name}"></td>
+			<td th:text= "${wine.review}"></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${wine.id})}" class="btn btn-success">Edit</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${wine.id})}" class="btn btn-xs btn-danger">Delete</a></td>    		
 			</tr>

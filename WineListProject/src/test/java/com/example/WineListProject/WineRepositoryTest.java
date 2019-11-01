@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +20,21 @@ import com.example.WineListProject.domain.WineRepository;
 class WineRepositoryTest {
 
 	@Autowired
-    private WineRepository repository;
-	
+	private WineRepository repository;
 	
 	// Testing to create a wine
 	 @Test
 	    public void createNewWine() {
-	    	Wine wine = new Wine("nimi3", "France", 2019, 23, 26, new Category("Rose"));
+	    	Wine wine = new Wine("nimi3", "France", 2019, 23, 26, new Category("Rose"), "");
 	    	repository.save(wine);
 	    	assertThat(wine.getId()).isNotNull();
+	        assertThat(repository).isNotNull();
 	    }   
 	
 	// Testing to find a wine
     @Test
     public void findNameShouldReturnWine() {
-    	Wine wine = new Wine("nimi1", "France", 2019, 23, 26, new Category("Rose"));
-    	repository.save(wine);
-        List<Wine> wines = repository.findByName("nimi1");
+        List<Wine> wines = (List<Wine>) repository.findAll();
         assertThat(wines).hasSize(1);
     }
     
