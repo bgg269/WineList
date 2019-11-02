@@ -63,12 +63,14 @@ public class WineController {
 		return "redirect:winelist";
 	}
 	
+	// Deleting a wine
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteWine(@PathVariable("id") Long wineId, Model model) {
 		repository.deleteById(wineId);
 		return "redirect:../winelist";
 	}
 
+	// Editing a wine
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String editWine(@PathVariable("id") Long wineId, Model model) {
 		model.addAttribute("wine", repository.findById(wineId));

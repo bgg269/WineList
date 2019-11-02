@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
 <head>
 <title>Add Wines</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,17 +24,18 @@
 		<label for="alcohol">Alcohol (%) </label>
 		<input type="text" id= "alcohol" th:field="*{alcohol}" />
 		
-							
-		  	<label for="catlist">Type</label>
-			 <select id="catlist" th:field="*{category}" class="form-control">
-       			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
-    		</select>
+		<div style="clear: both; display: block; height: 10px;"></div>			
+		 <label for="catlist">Type</label>
+		 	<select id="catlist" th:field="*{category}" class="form-control">
+			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+			</select>
     		
     	
 		<label for="review">Review</label>
 		<input type="text" id= "review" th:field="*{review}" />
 		
-		<input type="submit" value="Save"></input>
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" class="btn btn-success" value="Save"></input>
 	</form>
 </div>
 

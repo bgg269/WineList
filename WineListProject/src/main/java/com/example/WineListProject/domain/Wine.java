@@ -14,31 +14,39 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Wine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	private String name, region, review;
-	private Integer year, price;
-	private double alcohol;
+	private Integer year;
+	private double price, alcohol;
 
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "categoryid")
 	private Category category;
 
-
+	//Constructors
 	public Wine() {}
 	
-	public Wine(String name, String region, Integer year, Integer price, double alcohol, Category category, String review) {
+	public Wine(String name, String region, Integer year, double price, double alcohol, Category category, String review) {
 		super();
+		this.name = name;
+		this.region = region;
+		this.year = year;
 		this.price = price;
+		this.alcohol = alcohol;
 		this.category = category;
+		this.review = review;
+		
 	}
+	
+	//Getters and setters:
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -67,22 +75,14 @@ public class Wine {
 		this.year = year;
 	}
 
-	public Integer getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
+	
 	public double getAlcohol() {
 		return alcohol;
 	}
@@ -98,17 +98,26 @@ public class Wine {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
 		if (this.category != null)
-			return "Wine [id=" + id + ", name=" + name + ", type=" + region + ", year=" + year + ", alcohol=" + alcohol
-					+ ", price=" + price + "category= " + this.getCategory() + "]";
+			return "Wine [id=" + id + ", name=" + name + ", region=" + region + ", review=" + review + ", year=" + year
+				+ ", price=" + price + ", alcohol=" + alcohol + ", category=" + this.getCategory() + "]";
 		else
-
-			return "Wine [id=" + id + ", name=" + name + ", type=" + region + ", year=" + year + ", alcohol=" + alcohol
-					+ ", price=" + price + "]";
+			return "Wine [id=" + id + ", name=" + name + ", region=" + region + ", review=" + review + ", year=" + year
+					+ ", price=" + price + ", alcohol=" + alcohol + "]";
 	}
+	
+	
 
 	
 

@@ -10,16 +10,23 @@
 <div>
 	<form th:object="${wine}"  th:action="@{../save}" action="#" method="post">
 		<input type="hidden" th:field="*{id}" class="form-control"/>
+		<label for="name">Name </label>
 		<input type="text" th:field="*{name}" />
+		<label for="region">Region </label>
 		<input type="text" th:field="*{region}" />
+		<label for="year">Year </label>
 		<input type="text" th:field="*{year}" />
+		<label for="price">Price (€)</label>
 		<input type="text" th:field="*{price}" />
+		<label for="alcohol">Alcohol (%) </label>
 		<input type="text" th:field="*{alcohol}" />
 		
+		 <label for="catlist">Type</label>
 		<select id="catlist" th:field="*{category}" class="form-control">
        			<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
     	</select>
     		
+		<label for="review">Review</label>
     	<input type="text" th:field="*{review}" />
 		
 		<input type="submit" value="Save"></input>

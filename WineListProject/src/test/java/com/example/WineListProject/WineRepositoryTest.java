@@ -1,9 +1,9 @@
 package com.example.WineListProject;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -22,22 +22,25 @@ class WineRepositoryTest {
 	@Autowired
 	private WineRepository repository;
 	
+	// Testing to find a wine
+    @Test
+    public void findNameShouldReturnWine() {
+        List<Wine> wines = repository.findByName("Chateau Musar");
+        
+        assertThat(wines).hasSize(1);
+        assertThat(wines.get(0).getRegion().contains("France"));
+    }
+    
 	// Testing to create a wine
 	 @Test
 	    public void createNewWine() {
-	    	Wine wine = new Wine("nimi3", "France", 2019, 23, 26, new Category("Rose"), "");
+	    	Wine wine = new Wine("Château d'Aqueria Tavel", "France, Grenache", 2017, 16.9, 14.0, new Category("Rose"), "Hintansa väärti");
 	    	repository.save(wine);
 	    	assertThat(wine.getId()).isNotNull();
 	        assertThat(repository).isNotNull();
 	    }   
 	
-	// Testing to find a wine
-    @Test
-    public void findNameShouldReturnWine() {
-        List<Wine> wines = (List<Wine>) repository.findAll();
-        assertThat(wines).hasSize(1);
-    }
-    
+
   //Testing to delete a wine
     @Test
     public void deleteWine() {
