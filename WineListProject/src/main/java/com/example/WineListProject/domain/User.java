@@ -36,7 +36,8 @@ public class User {
 		this.email = email;
 		this.role = role;
 	}
-
+	
+	// Getters and setters:
 	public Long getId() {
 		return id;
 	}

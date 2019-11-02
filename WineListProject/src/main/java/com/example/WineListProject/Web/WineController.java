@@ -16,7 +16,6 @@ import com.example.WineListProject.domain.Wine;
 import com.example.WineListProject.domain.WineRepository;
 
 
-
 @Controller
 public class WineController {
 	@Autowired
@@ -56,7 +55,7 @@ public class WineController {
     	return repository.findById(wineId);
     }
 
-    // Saving wines
+    // Saving a wine
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Wine wine) {
 		repository.save(wine);
@@ -78,6 +77,7 @@ public class WineController {
 		return "editwine";
 	}
 	
+	// Finding all wines
 	@RequestMapping(value = "/find", method = RequestMethod.POST)
 	public String findAll() {
 		List<Wine> list = (List<Wine>) repository.findAll();

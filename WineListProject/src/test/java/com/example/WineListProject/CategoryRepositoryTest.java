@@ -21,6 +21,7 @@ class CategoryRepositoryTest {
 	@Autowired
     private CategoryRepository repository;
 
+    //Testing to find a category
     @Test
     public void findNameShouldReturnCategory() {
         List<Category> categories = repository.findByName("red");

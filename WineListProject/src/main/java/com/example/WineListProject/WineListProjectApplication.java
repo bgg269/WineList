@@ -36,9 +36,7 @@ public class WineListProjectApplication {
 			
 			// Creating a wine
 			wrepository.save(new Wine("Chateau Musar", "France, Cabernet Sauvignon", 2011, 23.95, 14.0, crepository.findByName("red").get(0), "hyvää"));
-			
-			System.out.println("nämä" + wrepository.findAll());
-			
+						
 			// Creating users: admin/admin user/user1
 			User user1 = new User("user", "$2a$10$3tS39Zge9aUtub4IL3PYN.MsBxIYNyPqXGtSv1seYW3.48UdCLyfm", "user@haaga-helia.fi", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "admin@haaga-helia.fi", "ADMIN");
