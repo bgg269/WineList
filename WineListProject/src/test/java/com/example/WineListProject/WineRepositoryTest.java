@@ -15,7 +15,6 @@ import com.example.WineListProject.domain.Category;
 import com.example.WineListProject.domain.Wine;
 import com.example.WineListProject.domain.WineRepository;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest
 class WineRepositoryTest {
 
