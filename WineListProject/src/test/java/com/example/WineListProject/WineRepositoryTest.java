@@ -8,10 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.WineListProject.domain.Category;
 import com.example.WineListProject.domain.Wine;
@@ -39,7 +37,6 @@ class WineRepositoryTest {
 	    	Wine wine = new Wine("Château d'Aqueria Tavel", "France, Grenache", 2017, 16.9, 14.0, new Category("Rose"), "Hintansa väärti");
 	    	repository.save(wine);
 	    	assertThat(wine.getId()).isNotNull();
-	        assertThat(repository).isNotNull();
 	    }   
 	
 
